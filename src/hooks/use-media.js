@@ -8,12 +8,16 @@ export default function useMedia(width = 1024) {
         const matchMedia = window.matchMedia(`(max-width: ${width}px)`)
 
         const onChangeHandle = e => {
-            console.log(e.matches)
+            setStatus(e.matches)
         }
 
         matchMedia.addEventListener('change', onChangeHandle)
+
+        return () => {
+            matchMedia.removeEventListener('change', onChangeHandle)
+          }
     })
 
-  return status
+    return status
   
 }

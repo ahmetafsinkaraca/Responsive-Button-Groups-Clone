@@ -1,16 +1,41 @@
-import Button from "./component/button/index";
+import ButtonGroups from "./component/button-group";
 
 function App() {
   return (
-    <div className="p-10">
+    <div className="p-4 container mx-auto">
+
       <header className="flex items-center justify-between">
         <h3 className="text-lg font-semibold">Hoşgeldin</h3>
         <nav className="flex gap-2.5">
-          <Button size="small">Yeni Ekle</Button>
-          <Button size="small">Ayarlar</Button>
-          <Button size="small">Çıkış Yap</Button>
+          <ButtonGroups
+          autoClose={true}
+          buttons = {[
+            {
+              title: 'Yeni Ekle',
+              attributes: {
+                size: 'small',
+                onclick: () => alert('ekle')
+              }
+            },
+            {
+              title: 'Ayarlar',
+              attributes: {
+                size:'small'
+              }
+            },
+            {
+              title: 'Çıkış Yap',
+              attributes: {
+                size: 'small',
+                variant:'danger'
+              }
+            }
+          ]}
+          />
+
         </nav>
       </header>
+
     </div>
   );
 }
